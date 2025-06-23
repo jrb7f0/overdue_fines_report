@@ -30,7 +30,7 @@ def send_email_external():
     smtp.sendmail(sender, recipient, email.as_string())
     smtp.quit()
 
-def send_email(sender, recipients, subject, message):
+def send_email(sender, recipients, subject, message, attachment=None):
     """Sends an email with the given sender, recipient, subject, and message."""
     msg = email.message.Message()
     msg['From'] = sender
@@ -39,6 +39,9 @@ def send_email(sender, recipients, subject, message):
     msg['Subject'] = subject
     msg.add_header('Content-Type', 'text')
     msg.set_payload(message)
+
+    if attachment:
+        msg.attach(attachment)
 
     smtp_server = 'smtpinternal.umsystem.edu'
     smtp_port = 25

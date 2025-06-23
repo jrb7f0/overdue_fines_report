@@ -177,6 +177,11 @@ with open(output_file, "w", newline='', encoding="utf-8") as file:
     for row in rows_sorted:
         fw.writerow(row)
 
+# email_charges.send_email(
+#     sender="",
+#     recipients=
+# )
+
 output_file = F"umkc_loans_{todays_date_iso_8601_basic}.tsv"
 with open(output_file, "w", newline='', encoding="utf-8") as file:
     fw = csv.writer(file, delimiter='\t')
